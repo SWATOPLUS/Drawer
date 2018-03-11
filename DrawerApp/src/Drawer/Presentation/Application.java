@@ -1,9 +1,6 @@
-package Drawer;
+package Drawer.Presentation;
 
-import Drawer.Presentation.IrregularShapeCreator;
-import Drawer.Presentation.RegularShapeCreator;
-import Drawer.Presentation.ShapeCanvas;
-import Drawer.Presentation.ShapeCreator;
+import Drawer.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,11 +65,11 @@ public class Application extends JFrame {
         addMenu.add(constructAddMenuItem("circle",2,points -> new Circle(borderColor,fillColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("ellipse",2,points -> new Ellipse(borderColor,fillColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("polyline",points -> new PolyLine(borderColor,points)));
-        addMenu.add(constructAddMenuItem("polygon",points -> new Polygon(borderColor,fillColor,points)));
+        addMenu.add(constructAddMenuItem("polygon",points -> new Drawer.Polygon(borderColor,fillColor,points)));
         return addMenu;
     }
 
-    private JMenuItem constructAddMenuItem(String name, int pointsCount, Function<List<Point>, Shape> builder){
+    private JMenuItem constructAddMenuItem(String name, int pointsCount, Function<List<Point>, Drawer.Shape> builder){
         JMenuItem menuItem = new JMenuItem(name);
 
         menuItem.addActionListener(e -> {
@@ -84,7 +81,7 @@ public class Application extends JFrame {
         return menuItem;
     }
 
-    private JMenuItem constructAddMenuItem(String name, Function<List<Point>, Shape> builder){
+    private JMenuItem constructAddMenuItem(String name, Function<List<Point>, Drawer.Shape> builder){
 
         JMenuItem menuItem = new JMenuItem(name);
 
