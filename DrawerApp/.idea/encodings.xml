@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/Drawer/Application.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Circle.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Controller.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Demo.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Ellipse.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/IsoscelesTriangle.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Line.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/OneDimShape.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Parallelogram.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/PolyLine.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Polygon.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Ray.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Rectangle.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/RegularPolygon.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Rhombus.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/RightTriangle.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Segment.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Shape.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/Trapezium.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Drawer/TwoDimShape.java" charset="ISO-8859-1" />
+  </component>
+</project>
