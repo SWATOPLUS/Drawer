@@ -13,8 +13,10 @@ public class PolyLine extends OneDimShape {
 
 	private List<Point> points;
 
-	public PolyLine(Color shColor) {
+	public PolyLine(Color shColor, List<Point> points) {
 		super(shColor);
+		this.points = points;
+		setTheCenter(points.get(0));
 	}
 
 
@@ -22,13 +24,15 @@ public class PolyLine extends OneDimShape {
 		super.finalize();
 	}
 
-	@Override
-	public void draw(Graphics g) {
-
-	}
-
-	public void draw(){
-
+	public void draw(Graphics g){
+		int[] xPoints = new int[points.size()];
+		int[] yPoints = new int[points.size()];
+		for(int i=0;i<points.size();i++){
+			xPoints[i] = points.get(i).x;
+			yPoints[i] = points.get(i).y;
+		}
+		g.setColor(getShapeColor());
+		g.drawPolyline(xPoints, yPoints, points.size());
 	}
 
 	public List<Point> getPoints(){
@@ -40,7 +44,13 @@ public class PolyLine extends OneDimShape {
 	 * @param point    point
 	 */
 	public void move(Point point){
-
+		int xDiff = getTheCenter().x - point.x;
+		int yDiff = getTheCenter().y - point.y;
+		setTheCenter(new Point(point));
+		for(Point p: points){
+			p.x-=xDiff;
+			p.y-=yDiff;
+		}
 	}
 
 	/**

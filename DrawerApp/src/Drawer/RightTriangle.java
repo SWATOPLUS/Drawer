@@ -1,6 +1,7 @@
 package Drawer;
 
 import java.awt.*;
+import java.util.*;
 
 /**
  * @author Шевцов
@@ -11,8 +12,8 @@ public class RightTriangle extends Polygon {
 
 	private Point addPoint;
 
-	public RightTriangle(Color shColor) {
-		super(shColor);
+	public RightTriangle(Color shColor, Color shFillColor, java.util.List<Point> points) {
+		super(shColor, shFillColor, points);
 	}
 
 

@@ -1,6 +1,7 @@
 package Drawer;
 
 import java.awt.*;
+import java.util.*;
 
 /**
  * @author Шевцов
@@ -10,8 +11,8 @@ import java.awt.*;
 public class Trapezium extends Polygon {
 
 
-	public Trapezium(Color shColor) {
-		super(shColor);
+	public Trapezium(Color shColor, Color shFillColor, java.util.List<Point> points) {
+		super(shColor, shFillColor, points);
 	}
 
 	public void finalize() throws Throwable {

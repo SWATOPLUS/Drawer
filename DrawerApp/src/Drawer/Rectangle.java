@@ -1,6 +1,7 @@
 package Drawer;
 
 import java.awt.*;
+import java.util.*;
 
 /**
  * @author Шевцов
@@ -10,8 +11,8 @@ import java.awt.*;
 public class Rectangle extends RightTriangle {
 
 
-	public Rectangle(Color shColor) {
-		super(shColor);
+	public Rectangle(Color shColor, Color shFillColor, java.util.List<Point> points) {
+		super(shColor, shFillColor, points);
 	}
 
 	public void finalize() throws Throwable {

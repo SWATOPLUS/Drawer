@@ -1,6 +1,7 @@
 package Drawer;
 
 import java.awt.*;
+import java.util.*;
 
 /**
  * @author Шевцов
@@ -12,8 +13,8 @@ public class RegularPolygon extends Polygon {
 	private Point addPoint;
 	private int amount;
 
-	public RegularPolygon(Color shColor) {
-		super(shColor);
+	public RegularPolygon(Color shColor, Color shFillColor, java.util.List<Point> points) {
+		super(shColor, shFillColor, points);
 	}
 
 
