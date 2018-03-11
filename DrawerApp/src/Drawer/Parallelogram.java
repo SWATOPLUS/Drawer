@@ -1,5 +1,7 @@
 package Drawer;
 
+import java.awt.*;
+
 /**
  * @author Шевцов
  * @version 1.0
@@ -7,8 +9,9 @@ package Drawer;
  */
 public class Parallelogram extends Trapezium {
 
-	public Parallelogram(){
 
+	public Parallelogram(Color shColor) {
+		super(shColor);
 	}
 
 	public void finalize() throws Throwable {

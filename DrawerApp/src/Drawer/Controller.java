@@ -1,5 +1,8 @@
 package Drawer;
 
+import java.awt.Point;
+import java.util.List;
+
 /**
  * @author Shavo_000
  * @version 1.0
@@ -70,7 +73,7 @@ public class Controller {
 	 * 
 	 * @param points
 	 */
-	public void createPolygon(list<Point> points){
+	public void createPolygon(List<Point> points){
 
 	}
 
@@ -78,7 +81,7 @@ public class Controller {
 	 * 
 	 * @param points
 	 */
-	public void createPolyLine(list<Point> points){
+	public void createPolyLine(List<Point> points){
 
 	}
 
@@ -141,7 +144,7 @@ public class Controller {
 	 * 
 	 * @param points
 	 */
-	public void createTrapezium(list<Point> points){
+	public void createTrapezium(List<Point> points){
 
 	}
 

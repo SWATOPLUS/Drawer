@@ -1,5 +1,8 @@
 package Drawer;
 
+import java.awt.*;
+import java.util.List;
+
 /**
  * @author Шевцов
  * @version 1.0
@@ -7,11 +10,12 @@ package Drawer;
  */
 public class Polygon extends TwoDimShape {
 
-	private list<Point> points;
+	private List<Point> points;
 
-	public Polygon(){
-
+	public Polygon(Color shColor) {
+		super(shColor);
 	}
+
 
 	public void finalize() throws Throwable {
 		super.finalize();
@@ -21,8 +25,13 @@ public class Polygon extends TwoDimShape {
 
 	}
 
-	public list<Point> getPoints(){
+	public List<Point> getPoints(){
 		return points;
+	}
+
+	@Override
+	public void draw(Graphics g) {
+
 	}
 
 	/**
@@ -37,7 +46,7 @@ public class Polygon extends TwoDimShape {
 	 * 
 	 * @param newVal    newVal
 	 */
-	public void setPoints(list<Point> newVal){
+	public void setPoints(List<Point> newVal){
 		points = newVal;
 	}
 

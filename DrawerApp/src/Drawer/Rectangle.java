@@ -1,5 +1,7 @@
 package Drawer;
 
+import java.awt.*;
+
 /**
  * @author Шевцов
  * @version 1.0
@@ -7,8 +9,9 @@ package Drawer;
  */
 public class Rectangle extends RightTriangle {
 
-	public Rectangle(){
 
+	public Rectangle(Color shColor) {
+		super(shColor);
 	}
 
 	public void finalize() throws Throwable {

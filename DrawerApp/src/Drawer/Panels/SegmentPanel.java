@@ -37,9 +37,9 @@ public class SegmentPanel extends JPanel {
                             case 1:
                                 segment = new Segment(shColor, center, secondPoint);
                             case 2:
-                                segment = new Ray(shColor, center, secondPoint);
+                                segment = new Ray(shColor, center, secondPoint, 0, 0);
                             case 3:
-                                segment = new Line(shColor, center, secondPoint);
+                                segment = new Line(shColor, center, secondPoint, 0 , 0);
                         }
                         repaint();
                         break;

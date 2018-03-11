@@ -1,5 +1,7 @@
 package Drawer;
 
+import java.awt.*;
+
 /**
  * @author Шевцов
  * @version 1.0
@@ -7,8 +9,9 @@ package Drawer;
  */
 public class Rhombus extends Rectangle {
 
-	public Rhombus(){
 
+	public Rhombus(Color shColor) {
+		super(shColor);
 	}
 
 	public void finalize() throws Throwable {

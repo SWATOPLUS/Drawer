@@ -54,12 +54,18 @@ public class Application extends JFrame {
 
         menuBar.add(colorMenu);
 
-
+        add(menuBar,BorderLayout.NORTH);
 
 	}
 
 	public void finalize() throws Throwable {
 
 	}
+
+	public static void main(String[] args){
+	    JFrame app = new Application();
+	    app.setSize(640,480);
+        app.setVisible(true);
+    }
 
 }

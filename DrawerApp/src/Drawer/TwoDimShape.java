@@ -1,5 +1,7 @@
 package Drawer;
 
+import java.awt.*;
+
 /**
  * @author Shavo_000
  * @version 1.0
@@ -9,9 +11,10 @@ public abstract class TwoDimShape extends Shape {
 
 	private Color shapeFillColor;
 
-	public TwoDimShape(){
-
+	public TwoDimShape(Color shColor) {
+		super(shColor);
 	}
+
 
 	public void finalize() throws Throwable {
 		super.finalize();

@@ -1,5 +1,7 @@
 package Drawer;
 
+import java.awt.*;
+
 /**
  * @author Шевцов
  * @version 1.0
@@ -9,9 +11,10 @@ public class Ellipse extends TwoDimShape {
 
 	private Point addPoint;
 
-	public Ellipse(){
-
+	public Ellipse(Color shColor) {
+		super(shColor);
 	}
+
 
 	public void finalize() throws Throwable {
 		super.finalize();
@@ -23,6 +26,11 @@ public class Ellipse extends TwoDimShape {
 
 	public Point getAddPoint(){
 		return addPoint;
+	}
+
+	@Override
+	public void draw(Graphics g) {
+
 	}
 
 	/**

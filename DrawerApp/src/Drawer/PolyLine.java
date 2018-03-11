@@ -13,19 +13,25 @@ public class PolyLine extends OneDimShape {
 
 	private List<Point> points;
 
-	public PolyLine(){
-
+	public PolyLine(Color shColor) {
+		super(shColor);
 	}
+
 
 	public void finalize() throws Throwable {
 		super.finalize();
+	}
+
+	@Override
+	public void draw(Graphics g) {
+
 	}
 
 	public void draw(){
 
 	}
 
-	public list<Point> getPoints(){
+	public List<Point> getPoints(){
 		return points;
 	}
 
@@ -41,7 +47,7 @@ public class PolyLine extends OneDimShape {
 	 * 
 	 * @param newVal    newVal
 	 */
-	public void setPoints(list<Point> newVal){
+	public void setPoints(List<Point> newVal){
 		points = newVal;
 	}
 
