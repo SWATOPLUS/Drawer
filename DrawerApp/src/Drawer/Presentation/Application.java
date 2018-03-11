@@ -71,15 +71,16 @@ public class Application extends JFrame {
 
 	private JMenu constructAddMenu(){
         JMenu addMenu = new JMenu("add shape");
-
-        //ShapeCreator ss2 = new IrregularShapeCreator(shapeCanvas, count -> true , points -> new Segment(Color.BLACK,points.get(0),points.get(1)));
         addMenu.add(constructAddMenuItem("segment",2,points -> new Segment(borderColor,points.get(0),points.get(1))));
+        addMenu.add(constructAddMenuItem("ray",2,points -> new Ray(borderColor,points.get(0),points.get(1))));
+        addMenu.add(constructAddMenuItem("line",2,points -> new Line(borderColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("circle",2,points -> new Circle(borderColor,fillColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("ellipse",2,points -> new Ellipse(borderColor,fillColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("right triangle",2,points -> new RightTriangle(borderColor,fillColor,points)));
         addMenu.add(constructAddMenuItem("rect",2,points -> new Rectangle(borderColor,fillColor,points)));
         addMenu.add(constructAddMenuItem("Rhombus",2, points -> new Rhombus(borderColor,fillColor,points)));
         addMenu.add(constructAddMenuItem("IsoscelesTriangle",2, points -> new IsoscelesTriangle(borderColor,fillColor,points)));
+        addMenu.add(constructAddMenuItem("RegularPolygon",2, points -> new RegularPolygon(borderColor,fillColor,points, vertCount)));
         addMenu.add(constructAddMenuItem("polyline",points -> new PolyLine(borderColor,points)));
         addMenu.add(constructAddMenuItem("polygon",points -> new Drawer.Polygon(borderColor,fillColor,points)));
         return addMenu;

@@ -10,8 +10,14 @@ import java.awt.*;
 public class Line extends Ray {
 
 
-	public Line(Color shColor, Point center, Point b, int maxX, int maxY) {
-		super(shColor, center, b, maxX, maxY);
+	public Line(Color shColor, Point center, Point b) {
+		super(shColor, center, b);
+	}
+
+	@Override
+	public void draw(Graphics g){
+		super.draw(g);
+		drawRayFromTo(g,getB(),getTheCenter());
 	}
 
 	public void finalize() throws Throwable {
