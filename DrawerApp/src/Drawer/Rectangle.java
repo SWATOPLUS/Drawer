@@ -2,6 +2,7 @@ package Drawer;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author Шевцов
@@ -11,8 +12,10 @@ import java.util.*;
 public class Rectangle extends RightTriangle {
 
 
-	public Rectangle(Color shColor, Color shFillColor, java.util.List<Point> points) {
+	public Rectangle(Color shColor, Color shFillColor, List<Point> points){
 		super(shColor, shFillColor, points);
+		points.add(2, new Point(2*getTheCenter().x - getAddPoint().x, 2*getTheCenter().y - getAddPoint().y));
+		setPoints(points);
 	}
 
 	public void finalize() throws Throwable {

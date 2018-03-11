@@ -1,8 +1,11 @@
 package Drawer.Presentation;
 
 import Drawer.*;
+import Drawer.Rectangle;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.List;
 import java.util.function.Function;
@@ -13,6 +16,7 @@ public class Application extends JFrame {
     private IrregularShapeCreator irregularShapeCreator;
     private Color borderColor;
 	private Color fillColor;
+	private int vertCount;
 
 	public Application(){
 	    super("Drawer");
@@ -26,18 +30,18 @@ public class Application extends JFrame {
 
 		JMenu colorMenu = new JMenu("Color");
 
-		JMenuItem shColorItem = new JMenuItem("Shape color");
-		colorMenu.add(shColorItem);
-        shColorItem.addActionListener(e -> {
+		JMenuItem borderColorMenuItem = new JMenuItem("Shape color");
+		colorMenu.add(borderColorMenuItem);
+        borderColorMenuItem.addActionListener(e -> {
             borderColor = JColorChooser.showDialog(null, "Shape color", Color.BLACK);
-            shColorItem.setForeground(borderColor);
+            borderColorMenuItem.setForeground(borderColor);
         });
 
-        JMenuItem shFillColorItem = new JMenuItem("Shape fill color");
-		colorMenu.add(shFillColorItem);
-        shColorItem.addActionListener(e -> {
+        JMenuItem fillColorMenuItem = new JMenuItem("Shape fill color");
+		colorMenu.add(fillColorMenuItem);
+        fillColorMenuItem.addActionListener(e -> {
             fillColor = JColorChooser.showDialog(null, "Shape fill color", Color.WHITE);
-            shFillColorItem.setForeground(fillColor);
+            fillColorMenuItem.setForeground(fillColor);
         });
 
 
@@ -48,11 +52,19 @@ public class Application extends JFrame {
        });
        stopButton.setVisible(false);
 
+       JSpinner vertCountInput = new JSpinner(new SpinnerNumberModel(0,0,10000,1));
+       vertCountInput.addChangeListener(new ChangeListener() {
+           @Override
+           public void stateChanged(ChangeEvent e) {
+               vertCount = Integer.parseInt(vertCountInput.getValue().toString());
+           }
+       });
+
 
         menuBar.add(colorMenu);
         menuBar.add(this.constructAddMenu());
         menuBar.add(stopButton);
-
+        menuBar.add(vertCountInput);
         add(menuBar,BorderLayout.NORTH);
 	}
 
@@ -64,6 +76,10 @@ public class Application extends JFrame {
         addMenu.add(constructAddMenuItem("segment",2,points -> new Segment(borderColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("circle",2,points -> new Circle(borderColor,fillColor,points.get(0),points.get(1))));
         addMenu.add(constructAddMenuItem("ellipse",2,points -> new Ellipse(borderColor,fillColor,points.get(0),points.get(1))));
+        addMenu.add(constructAddMenuItem("right triangle",2,points -> new RightTriangle(borderColor,fillColor,points)));
+        addMenu.add(constructAddMenuItem("rect",2,points -> new Rectangle(borderColor,fillColor,points)));
+        addMenu.add(constructAddMenuItem("Rhombus",2, points -> new Rhombus(borderColor,fillColor,points)));
+        addMenu.add(constructAddMenuItem("IsoscelesTriangle",2, points -> new IsoscelesTriangle(borderColor,fillColor,points)));
         addMenu.add(constructAddMenuItem("polyline",points -> new PolyLine(borderColor,points)));
         addMenu.add(constructAddMenuItem("polygon",points -> new Drawer.Polygon(borderColor,fillColor,points)));
         return addMenu;

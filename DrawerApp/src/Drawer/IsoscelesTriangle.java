@@ -2,6 +2,7 @@ package Drawer;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author Шевцов
@@ -11,8 +12,11 @@ import java.util.*;
 public class IsoscelesTriangle extends RightTriangle {
 
 
-	public IsoscelesTriangle(Color shColor, Color shFillColor, java.util.List<Point> points) {
+	public IsoscelesTriangle(Color shColor, Color shFillColor, List<Point> points){
 		super(shColor, shFillColor, points);
+		points.add(new Point(2*getAddPoint().x - points.get(2).x, getAddPoint().y));
+		points.remove(0);
+		setPoints(points);
 	}
 
 	public void finalize() throws Throwable {

@@ -18,7 +18,7 @@ public abstract class Shape {
 	}
 
 	public Point getTheCenter(){
-		return theCenter;
+		return new Point(theCenter.x, theCenter.y);
 	}
 
 	public abstract void move(Point point);

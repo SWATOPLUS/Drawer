@@ -2,6 +2,7 @@ package Drawer;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author Шевцов
@@ -11,8 +12,14 @@ import java.util.*;
 public class Rhombus extends Rectangle {
 
 
-	public Rhombus(Color shColor, Color shFillColor, java.util.List<Point> points) {
+	public Rhombus(Color shColor, Color shFillColor, List<Point> points){
 		super(shColor, shFillColor, points);
+		List<Point> newPoints = new ArrayList<>(points.size());
+		newPoints.add(new Point(getAddPoint().x, getTheCenter().y));
+		newPoints.add(new Point(getTheCenter().x, getAddPoint().y));
+		newPoints.add(new Point(2*getTheCenter().x - getAddPoint().x, getTheCenter().y));
+		newPoints.add(new Point(getTheCenter().x, 2*getTheCenter().y - getAddPoint().y));
+		setPoints(newPoints);
 	}
 
 	public void finalize() throws Throwable {
