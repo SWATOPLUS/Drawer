@@ -10,7 +10,7 @@ public class IrregularShapeCreator implements ShapeCreator {
 
     private final Function<List<Point>, Shape> builder;
     private final ShapeCanvas shapeCanvas;
-    private final List<Point> points = new ArrayList<>();
+    private final List<Point> points = new ArrayList<Point>();
 
     public IrregularShapeCreator(ShapeCanvas shapeCanvas, Function<List<Point>, Shape> builder){
         this.shapeCanvas=shapeCanvas;

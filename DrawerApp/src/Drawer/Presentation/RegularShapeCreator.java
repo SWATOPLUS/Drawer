@@ -11,7 +11,7 @@ public class RegularShapeCreator implements ShapeCreator {
     private final Function<List<Point>, Shape> builder;
     private final int pointCount;
     private final ShapeCanvas shapeCanvas;
-    private final List<Point> points = new ArrayList<>();
+    private final List<Point> points = new ArrayList<Point>();
 
     public RegularShapeCreator(ShapeCanvas shapeCanvas, int pointCount, Function<List<Point>, Shape> builder){
         this.shapeCanvas=shapeCanvas;
