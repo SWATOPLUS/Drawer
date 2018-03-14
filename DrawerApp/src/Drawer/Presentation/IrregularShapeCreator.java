@@ -6,27 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-public class IrregularShapeCreator implements ShapeCreator {
+public class IrregularShapeCreator extends ShapeCreator {
 
     private final Function<List<Point>, Shape> builder;
-    private final ShapeCanvas shapeCanvas;
     private final List<Point> points = new ArrayList<Point>();
 
-    public IrregularShapeCreator(ShapeCanvas shapeCanvas, Function<List<Point>, Shape> builder){
-        this.shapeCanvas=shapeCanvas;
+    public IrregularShapeCreator(Function<List<Point>, Shape> builder) {
         this.builder = builder;
-        shapeCanvas.applyCreator(this);
     }
 
     @Override
-    public void onPointAdded(Point point) {
+    public Shape onNext(Point point) {
         points.add(point);
-        shapeCanvas.applyShape(new Dots(points));
+        return new Dots(points);
     }
 
-    public void onStopped(){
-        Shape shape = builder.apply(points);
-        shapeCanvas.applyShape(shape);
-        shapeCanvas.cancelCreator();
+    @Override
+    public Shape onFinished() {
+        seal();
+        return builder.apply(points);
     }
 }

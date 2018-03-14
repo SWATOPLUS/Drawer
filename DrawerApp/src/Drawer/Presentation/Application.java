@@ -12,8 +12,6 @@ import java.util.function.Function;
 
 public class Application extends JFrame {
     private final ShapeCanvas shapeCanvas;
-    private final JButton stopButton;
-    private IrregularShapeCreator irregularShapeCreator;
     private Color borderColor;
 	private Color fillColor;
 	private int vertCount;
@@ -44,14 +42,6 @@ public class Application extends JFrame {
             fillColorMenuItem.setForeground(fillColor);
         });
 
-
-       stopButton = new JButton("stop");
-       stopButton.addActionListener(e -> {
-            irregularShapeCreator.onStopped();
-            stopButton.setVisible(false);
-       });
-       stopButton.setVisible(false);
-
        JSpinner vertCountInput = new JSpinner(new SpinnerNumberModel(0,0,10000,1));
        vertCountInput.addChangeListener(new ChangeListener() {
            @Override
@@ -63,7 +53,6 @@ public class Application extends JFrame {
 
         menuBar.add(colorMenu);
         menuBar.add(this.constructAddMenu());
-        menuBar.add(stopButton);
         menuBar.add(vertCountInput);
         add(menuBar,BorderLayout.NORTH);
 	}
@@ -91,8 +80,7 @@ public class Application extends JFrame {
 
         menuItem.addActionListener(e -> {
             shapeCanvas.applyShape(null);
-            ShapeCreator shapeCreator = new RegularShapeCreator(shapeCanvas, pointsCount, builder);
-            shapeCanvas.applyCreator(shapeCreator);
+            shapeCanvas.applyCreator(new RegularShapeCreator(pointsCount, builder));
         });
 
         return menuItem;
@@ -104,18 +92,11 @@ public class Application extends JFrame {
 
         menuItem.addActionListener(e -> {
             shapeCanvas.applyShape(null);
-            stopButton.setVisible(true);
-            irregularShapeCreator = new IrregularShapeCreator(shapeCanvas, builder);
-            ShapeCreator shapeCreator = irregularShapeCreator;
-            shapeCanvas.applyCreator(shapeCreator);
+            shapeCanvas.applyCreator(new IrregularShapeCreator(builder));
         });
 
         return menuItem;
     }
-
-
-
-
 
 	public void finalize() throws Throwable {
 

@@ -1,12 +1,11 @@
 package Drawer.Presentation;
 
 import Drawer.Shape;
+import javafx.scene.input.KeyCode;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 
 public class ShapeCanvas extends JPanel {
 
@@ -26,8 +25,14 @@ public class ShapeCanvas extends JPanel {
                 oldX = e.getX();
                 oldY = e.getY();
 
-                if(shapeCreator != null){
-                    shapeCreator.onPointAdded(new Point(e.getX(),e.getY()));
+                if(shapeCreator != null && !shapeCreator.isSealed()){
+                    if(SwingUtilities.isLeftMouseButton(e)) {
+                        applyShape(shapeCreator.onNext(new Point(e.getX(), e.getY())));
+                    } else if(SwingUtilities.isRightMouseButton(e)) {
+                        applyShape(shapeCreator.onFinished());
+                    } else if(SwingUtilities.isMiddleMouseButton(e)){
+                        applyShape(shapeCreator.onCanceled());
+                    }
                 }
             }
 
@@ -81,9 +86,5 @@ public class ShapeCanvas extends JPanel {
 
     public void applyCreator(ShapeCreator shapeCreator) {
         this.shapeCreator = shapeCreator;
-    }
-
-    public void cancelCreator() {
-        shapeCreator = null;
     }
 }
